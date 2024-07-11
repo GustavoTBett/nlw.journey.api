@@ -10,32 +10,32 @@ import (
 )
 
 type Activity struct {
-	ID       uuid.UUID        `db:"id" json:"id"`
-	TripID   uuid.UUID        `db:"trip_id" json:"trip_id"`
-	Title    string           `db:"title" json:"title"`
-	OccursAt pgtype.Timestamp `db:"occurs_at" json:"occurs_at"`
+	ID       uuid.UUID
+	TripID   uuid.UUID
+	Title    string
+	OccursAt pgtype.Timestamp
 }
 
 type Link struct {
-	ID     uuid.UUID `db:"id" json:"id"`
-	TripID uuid.UUID `db:"trip_id" json:"trip_id"`
-	Title  string    `db:"title" json:"title"`
-	Url    string    `db:"url" json:"url"`
+	ID     uuid.UUID
+	TripID uuid.UUID
+	Title  string
+	Url    string
 }
 
 type Participant struct {
-	ID          uuid.UUID `db:"id" json:"id"`
-	TripID      uuid.UUID `db:"trip_id" json:"trip_id"`
-	Email       string    `db:"email" json:"email"`
-	IsConfirmed bool      `db:"is_confirmed" json:"is_confirmed"`
+	ID          uuid.UUID
+	TripID      uuid.UUID
+	Email       string
+	IsConfirmed bool
 }
 
 type Trip struct {
-	ID          uuid.UUID        `db:"id" json:"id"`
-	Destination string           `db:"destination" json:"destination"`
-	OwnerEmail  string           `db:"owner_email" json:"owner_email"`
-	OwnerName   string           `db:"owner_name" json:"owner_name"`
-	IsConfirmed bool             `db:"is_confirmed" json:"is_confirmed"`
-	StartsAt    pgtype.Timestamp `db:"starts_at" json:"starts_at"`
-	EndsAt      pgtype.Timestamp `db:"ends_at" json:"ends_at"`
+	ID          uuid.UUID
+	Destination string
+	OwnerEmail  string
+	OwnerName   string
+	IsConfirmed bool
+	StartsAt    pgtype.Timestamp
+	EndsAt      pgtype.Timestamp
 }
