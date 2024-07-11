@@ -7,7 +7,7 @@ metadata:
     app: journey
 
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: journey
@@ -20,37 +20,37 @@ spec:
         - name: api-journey
           image: gustavotbett/nlw.journey.api:5bfd09f
           env:
-          - name: JOURNEY_DATABASE_USER
-            valueFrom: 
-              secretKeyRef:
-                name: db-connection
-                key: db-username
-          - name: JOURNEY_DATABASE_PASSWORD
-            valueFrom: 
-              secretKeyRef:
-                name: db-connection
-                key: db-password
-          - name: JOURNEY_DATABASE_HOST
-            valueFrom: 
-              secretKeyRef:
-                name: db-connection
-                key: db-host
-          - name: JOURNEY_DATABASE_PORT
-            valueFrom: 
-              secretKeyRef:
-                name: db-connection
-                key: db-port
-          - name: JOURNEY_DATABASE_NAME
-            valueFrom: 
-              secretKeyRef:
-                name: db-connection
-                key: db-name
+            - name: JOURNEY_DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: db-username
+            - name: JOURNEY_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: db-password
+            - name: JOURNEY_DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: db-port
+            - name: JOURNEY_DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: db-host
+            - name: JOURNEY_DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-connection
+                  key: db-name
           ports:
             - containerPort: 8080
           resources:
             requests:
-              memory: 256Mi
-              cpu: 200m
+              cpu: 100m
+              memory: 128Mi
             limits:
-              memory: 256Mi
-              cpu: 300m
+              cpu: 200m
+              memory: 128Mi
